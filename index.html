@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Happen Ventures — Presentations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+@font-face { font-family:"Poppins"; src:url("fonts/PoppinsLight-Regular.ttf") format("truetype"); font-weight:300; }
+@font-face { font-family:"Poppins"; src:url("fonts/Poppins-Regular.ttf")      format("truetype"); font-weight:400; }
+@font-face { font-family:"Poppins"; src:url("fonts/Poppins-Bold.ttf")         format("truetype"); font-weight:700; }
+@font-face { font-family:"Poppins"; src:url("fonts/PoppinsExtraBold-Bold.ttf") format("truetype"); font-weight:800; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; }
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: #111110;
+  color: #fff;
+  min-height: 100vh;
+}
+img { display: block; }
+
+/* ── Nav ──────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nav-logo { height: 26px; }
+.nav-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── Gallery ──────────────────────────────────────── */
+.gallery {
+  padding: 36px 40px 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.gallery-heading {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gallery-heading::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #32BDAE;
+  flex-shrink: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ── Card ─────────────────────────────────────────── */
+.card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1c1c1b;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  color: inherit;
+  transition: transform 220ms cubic-bezier(0.2,0.7,0.2,1),
+              box-shadow 220ms cubic-bezier(0.2,0.7,0.2,1);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.6);
+}
+.card:hover .card-img { transform: scale(1.05); }
+.card:hover .card-overlay { opacity: 1; }
+
+.card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #222;
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 420ms cubic-bezier(0.16,1,0.3,1);
+}
+.card-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.65) 100%);
+  pointer-events: none;
+}
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(50,189,174,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  z-index: 2;
+}
+.card-overlay-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #32BDAE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.card-overlay-icon svg { width: 20px; height: 20px; }
+
+.card-chip {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-family: "Poppins", sans-serif;
+}
+.chip-ready { background: rgba(50,189,174,0.88); color: #fff; }
+.chip-draft { background: rgba(250,194,54,0.88); color: #29261b; }
+
+.card-label { padding: 12px 14px 14px; }
+.card-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: #fff;
+  text-transform: uppercase;
+}
+.card-sub {
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.3);
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Lightbox ─────────────────────────────────────── */
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+.lb.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  cursor: pointer;
+}
+.lb-box {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, 94vw);
+  background: #1a1a19;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 32px 96px rgba(0,0,0,0.7);
+  transform: scale(0.95);
+  transition: transform 280ms cubic-bezier(0.16,1,0.3,1);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+.lb.open .lb-box { transform: scale(1); }
+
+.lb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.lb-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.lb-meta {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.lb-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lb-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #32BDAE;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+.lb-open-btn:hover { background: #00BCA0; }
+.lb-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease, color 150ms ease;
+  line-height: 1;
+}
+.lb-close:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+.lb-img-wrap {
+  flex: 1;
+  overflow: hidden;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lb-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 900px)  { .grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 520px)  {
+  .grid { grid-template-columns: 1fr; }
+  .nav, .gallery { padding-left: 20px; padding-right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <img class="nav-logo" src="assets/happen-ventures-wordmark-on-black.png" alt="Happen Ventures" />
+  <span class="nav-label">Presentations</span>
+</nav>
+
+<!-- Gallery -->
+<div class="gallery">
+  <div class="gallery-heading">All Decks</div>
+  <div class="grid" style="grid-template-columns: repeat(3,1fr);">
+
+    <button class="card" onclick="openLB(0)" data-screen-label="Deck 01">
+      <div class="card-thumb">
+        <img class="card-img" src="assets/dumpster-blue.jpg" alt="" />
+        <span class="card-chip chip-draft">Draft</span>
+        <div class="card-overlay">
+          <div class="card-overlay-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-label">
+        <div class="card-title">Master Deck</div>
+        <div class="card-sub">Company Overview</div>
+      </div>
+    </button>
+
+    <button class="card" onclick="openLB(1)" data-screen-label="Deck 02">
+      <div class="card-thumb">
+        <img class="card-img" src="assets/chemicals.jpg" alt="" />
+        <span class="card-chip chip-draft">Draft</span>
+        <div class="card-overlay">
+          <div class="card-overlay-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-label">
+        <div class="card-title">Amazon Deck</div>
+        <div class="card-sub">Warehouse Services Pitch</div>
+      </div>
+    </button>
+
+    <button class="card" onclick="openLB(2)" data-screen-label="Deck 03">
+      <div class="card-thumb">
+        <img class="card-img" src="assets/cardboard-bales.webp" alt="" />
+        <span class="card-chip chip-draft">Draft</span>
+        <div class="card-overlay">
+          <div class="card-overlay-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-label">
+        <div class="card-title">Case Studies</div>
+        <div class="card-sub">Impact Stories</div>
+      </div>
+    </button>
+
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="lb-backdrop" onclick="closeLB()"></div>
+  <div class="lb-box">
+    <div class="lb-header">
+      <div>
+        <div class="lb-title" id="lb-title"></div>
+        <div class="lb-meta" id="lb-meta"></div>
+      </div>
+      <div class="lb-actions">
+        <a class="lb-open-btn" id="lb-link" href="#" target="_blank">
+          Open full deck
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <button class="lb-close" onclick="closeLB()" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="lb-img-wrap">
+      <img id="lb-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
+    </div>
+  </div>
+</div>
+
+<script>
+const DECKS = [
+  { title: "Master Deck",   meta: "Company Overview",          img: "assets/dumpster-blue.jpg",    href: "#" },
+  { title: "Amazon Deck",   meta: "Warehouse Services Pitch",  img: "assets/chemicals.jpg",        href: "#" },
+  { title: "Case Studies",  meta: "Impact Stories",            img: "assets/cardboard-bales.webp", href: "#" },
+];
+
+function openLB(i) {
+  const d = DECKS[i];
+  document.getElementById("lb-title").textContent = d.title;
+  document.getElementById("lb-meta").textContent  = d.meta;
+  document.getElementById("lb-img").src           = d.img;
+  document.getElementById("lb-img").alt           = d.title;
+  document.getElementById("lb-link").href         = d.href;
+  document.getElementById("lb").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLB() {
+  document.getElementById("lb").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeLB();
+});
+</script>
+
+</body>
+</html>
