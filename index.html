@@ -20,7 +20,6 @@ body {
 }
 img { display: block; }
 
-/* ── Nav ──────────────────────────────────────────── */
 .nav {
   display: flex;
   align-items: center;
@@ -38,7 +37,6 @@ img { display: block; }
   color: rgba(255,255,255,0.3);
 }
 
-/* ── Gallery ──────────────────────────────────────── */
 .gallery {
   padding: 36px 40px 60px;
   max-width: 1280px;
@@ -70,7 +68,6 @@ img { display: block; }
   gap: 16px;
 }
 
-/* ── Card ─────────────────────────────────────────── */
 .card {
   position: relative;
   border-radius: 8px;
@@ -169,7 +166,6 @@ img { display: block; }
   text-transform: uppercase;
 }
 
-/* ── Lightbox ─────────────────────────────────────── */
 .lb {
   position: fixed;
   inset: 0;
@@ -285,7 +281,6 @@ img { display: block; }
   display: block;
 }
 
-/* ── Responsive ───────────────────────────────────── */
 @media (max-width: 900px)  { .grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 520px)  {
   .grid { grid-template-columns: 1fr; }
@@ -295,13 +290,11 @@ img { display: block; }
 </head>
 <body>
 
-<!-- Nav -->
 <nav class="nav">
   <img class="nav-logo" src="assets/happen-ventures-wordmark-on-black.png" alt="Happen Ventures" />
   <span class="nav-label">Presentations</span>
 </nav>
 
-<!-- Gallery -->
 <div class="gallery">
   <div class="gallery-heading">All Decks</div>
   <div class="grid" style="grid-template-columns: repeat(3,1fr);">
@@ -310,11 +303,7 @@ img { display: block; }
       <div class="card-thumb">
         <img class="card-img" src="assets/master-deck-cover.jpg" alt="" />
         <span class="card-chip chip-ready">Ready</span>
-        <div class="card-overlay">
-          <div class="card-overlay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </div>
-        </div>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
       </div>
       <div class="card-label">
         <div class="card-title">Master Deck</div>
@@ -326,11 +315,7 @@ img { display: block; }
       <div class="card-thumb">
         <img class="card-img" src="assets/amazon-deck-cover.jpg" alt="" />
         <span class="card-chip chip-ready">Ready</span>
-        <div class="card-overlay">
-          <div class="card-overlay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </div>
-        </div>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
       </div>
       <div class="card-label">
         <div class="card-title">Amazon Deck</div>
@@ -342,51 +327,65 @@ img { display: block; }
       <div class="card-thumb">
         <img class="card-img" src="assets/cardboard-bales.webp" alt="" />
         <span class="card-chip chip-ready">Ready</span>
-        <div class="card-overlay">
-          <div class="card-overlay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </div>
-        </div>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
       </div>
       <div class="card-label">
         <div class="card-title">Case Studies</div>
         <div class="card-sub">Impact Stories</div>
       </div>
     </button>
+
     <button class="card" onclick="openLB(3)" data-screen-label="Deck 04">
       <div class="card-thumb">
         <img class="card-img" src="assets/supermarket-aisle.jpg" alt="" />
         <span class="card-chip chip-ready">Ready</span>
-        <div class="card-overlay">
-          <div class="card-overlay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </div>
-        </div>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
       </div>
       <div class="card-label">
         <div class="card-title">Donation Liability One Pager</div>
         <div class="card-sub">Donation Liability</div>
       </div>
-    </button>    <button class="card" onclick="openLB(4)" data-screen-label="Deck 05">
+    </button>
+
+    <button class="card" onclick="openLB(5)" data-screen-label="Deck 06">
       <div class="card-thumb">
-        <img class="card-img" src="assets/store-decom.png" alt="">
+        <img class="card-img" src="assets/r3-onboarding-en-cover.jpg" alt="" />
         <span class="card-chip chip-ready">Ready</span>
-        <div class="card-overlay">
-          <div class="card-overlay-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </div>
-        </div>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
       </div>
       <div class="card-label">
-        <div class="card-title">BB Program One Pager In Store</div>
-        <div class="card-sub">Benefit Box Program</div>
+        <div class="card-title">R3 Program Onboarding Deck</div>
+        <div class="card-sub">English</div>
       </div>
-    </button>n>
+    </button>
+
+    <button class="card" onclick="openLB(6)" data-screen-label="Deck 07">
+      <div class="card-thumb">
+        <img class="card-img" src="assets/r3-onboarding-it-cover.jpg" alt="" />
+        <span class="card-chip chip-ready">Ready</span>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
+      </div>
+      <div class="card-label">
+        <div class="card-title">R3 Program Onboarding Deck</div>
+        <div class="card-sub">Italian</div>
+      </div>
+    </button>
+
+    <button class="card" onclick="openLB(7)" data-screen-label="Deck 08">
+      <div class="card-thumb">
+        <img class="card-img" src="assets/r3-onboarding-es-cover.jpg" alt="" />
+        <span class="card-chip chip-ready">Ready</span>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
+      </div>
+      <div class="card-label">
+        <div class="card-title">R3 Program Onboarding Deck</div>
+        <div class="card-sub">Spanish</div>
+      </div>
+    </button>
 
   </div>
 </div>
 
-<!-- Lightbox -->
 <div class="lb" id="lb" role="dialog" aria-modal="true">
   <div class="lb-backdrop" onclick="closeLB()"></div>
   <div class="lb-box">
@@ -411,11 +410,14 @@ img { display: block; }
 
 <script>
 const DECKS = [
-  { title: "Master Deck",   meta: "Company Overview",          img: "assets/master-deck-cover.jpg", href: "decks/master-deck.pdf" },
-  { title: "Amazon Deck",   meta: "Warehouse Services Pitch",  img: "assets/amazon-deck-cover.jpg", href: "decks/amazon-direction-a.pdf" },
-  { title: "Case Studies",  meta: "Impact Stories",            img: "assets/cardboard-bales.webp", href: "decks/case-studies.html" },
-    { title: "Donation Liability One Pager", meta: "Donation Liability", img: "assets/supermarket-aisle.jpg", href: "decks/donation-liability-one-pager.html" },
-    { title: "BB Program One Pager In Store", meta: "Benefit Box Program", img: "assets/store-decom.png", href: "decks/bb-program-one-pager-in-store.html" },
+  { title: "Master Deck",                    meta: "Company Overview",          img: "assets/master-deck-cover.jpg",        href: "decks/master-deck.pdf" },
+  { title: "Amazon Deck",                    meta: "Warehouse Services Pitch",  img: "assets/amazon-deck-cover.jpg",        href: "decks/amazon-direction-a.pdf" },
+  { title: "Case Studies",                   meta: "Impact Stories",            img: "assets/cardboard-bales.webp",         href: "decks/case-studies.html" },
+  { title: "Donation Liability One Pager",   meta: "Donation Liability",        img: "assets/supermarket-aisle.jpg",        href: "decks/donation-liability-one-pager.html" },
+  { title: "BB Program One Pager In Store",  meta: "Benefit Box Program",       img: "assets/store-decom.png",              href: "decks/bb-program-one-pager-in-store.html" },
+  { title: "R3 Program Onboarding Deck",     meta: "English",                   img: "assets/r3-onboarding-en-cover.jpg",   href: "decks/r3-onboarding-en-compressed.pdf" },
+  { title: "R3 Program Onboarding Deck",     meta: "Italian",                   img: "assets/r3-onboarding-it-cover.jpg",   href: "decks/r3-onboarding-it-compressed.pdf" },
+  { title: "R3 Program Onboarding Deck",     meta: "Spanish",                   img: "assets/r3-onboarding-es-cover.jpg",   href: "decks/r3-onboarding-es-small.pdf" },
 ];
 
 function openLB(i) {
