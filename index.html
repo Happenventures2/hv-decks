@@ -353,6 +353,21 @@ img { display: block; }
         <div class="card-sub">Impact Stories</div>
       </div>
     </button>
+    <button class="card" onclick="openLB(3)" data-screen-label="Deck 04">
+      <div class="card-thumb">
+        <img class="card-img" src="assets/supermarket-aisle.jpg" alt="" />
+        <span class="card-chip chip-ready">Ready</span>
+        <div class="card-overlay">
+          <div class="card-overlay-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-label">
+        <div class="card-title">Donation Liability One Pager</div>
+        <div class="card-sub">Donation Liability</div>
+      </div>
+    </button>
 
   </div>
 </div>
@@ -385,6 +400,7 @@ const DECKS = [
   { title: "Master Deck",   meta: "Company Overview",          img: "assets/master-deck-cover.jpg", href: "decks/master-deck.pdf" },
   { title: "Amazon Deck",   meta: "Warehouse Services Pitch",  img: "assets/amazon-deck-cover.jpg", href: "decks/amazon-direction-a.pdf" },
   { title: "Case Studies",  meta: "Impact Stories",            img: "assets/cardboard-bales.webp", href: "decks/case-studies.html" },
+    { title: "Donation Liability One Pager", meta: "Donation Liability", img: "assets/supermarket-aisle.jpg", href: "decks/donation-liability-one-pager.html" },
 ];
 
 function openLB(i) {
