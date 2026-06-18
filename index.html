@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Happen Ventures — Presentations</title>
+<title>Happen Ventures â Presentations</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
 @font-face { font-family:"Poppins"; src:url("fonts/PoppinsLight-Regular.ttf") format("truetype"); font-weight:300; }
@@ -20,6 +20,7 @@ body {
 }
 img { display: block; }
 
+/* Nav */
 .nav {
   display: flex;
   align-items: center;
@@ -37,6 +38,7 @@ img { display: block; }
   color: rgba(255,255,255,0.3);
 }
 
+/* Gallery */
 .gallery {
   padding: 36px 40px 60px;
   max-width: 1280px;
@@ -68,6 +70,7 @@ img { display: block; }
   gap: 16px;
 }
 
+/* Card */
 .card {
   position: relative;
   border-radius: 8px;
@@ -166,6 +169,7 @@ img { display: block; }
   text-transform: uppercase;
 }
 
+/* Lightbox */
 .lb {
   position: fixed;
   inset: 0;
@@ -281,6 +285,7 @@ img { display: block; }
   display: block;
 }
 
+/* Responsive */
 @media (max-width: 900px)  { .grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 520px)  {
   .grid { grid-template-columns: 1fr; }
@@ -349,7 +354,7 @@ img { display: block; }
 
     <button class="card" onclick="openLB(4)" data-screen-label="Deck 05">
       <div class="card-thumb">
-        <img class="card-img" src="assets/bb-program-one-pager.png" alt="" />
+        <img class="card-img" src="assets/store-decom.png" alt="" />
         <span class="card-chip chip-ready">Ready</span>
         <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
       </div>
@@ -395,6 +400,18 @@ img { display: block; }
       </div>
     </button>
 
+    <button class="card" onclick="openLB(8)" data-screen-label="Deck 09">
+      <div class="card-thumb">
+        <img class="card-img" src="assets/br-welcome-kit-cover.jpg" alt="" />
+        <span class="card-chip chip-ready">Ready</span>
+        <div class="card-overlay"><div class="card-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg></div></div>
+      </div>
+      <div class="card-label">
+        <div class="card-title">Beneficial Reuse Program Welcome Kit</div>
+        <div class="card-sub">Program Overview</div>
+      </div>
+    </button>
+
   </div>
 </div>
 
@@ -411,7 +428,7 @@ img { display: block; }
           Open full deck
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
-        <button class="lb-close" onclick="closeLB()" aria-label="Close">✕</button>
+        <button class="lb-close" onclick="closeLB()" aria-label="Close">&#x2715;</button>
       </div>
     </div>
     <div class="lb-img-wrap">
@@ -422,14 +439,15 @@ img { display: block; }
 
 <script>
 const DECKS = [
-  { title: "Master Deck",                    meta: "Company Overview",          img: "assets/master-deck-cover.jpg",        href: "decks/master-deck.pdf" },
-  { title: "Amazon Deck",                    meta: "Warehouse Services Pitch",  img: "assets/amazon-deck-cover.jpg",        href: "decks/amazon-direction-a.pdf" },
-  { title: "Case Studies",                   meta: "Impact Stories",            img: "assets/cardboard-bales.webp",         href: "decks/case-studies.html" },
-  { title: "Donation Liability One Pager",   meta: "Donation Liability",        img: "assets/supermarket-aisle.jpg",        href: "decks/donation-liability-one-pager.html" },
-  { title: "BB Program One Pager In Store",  meta: "Benefit Box Program",       img: "assets/bb-program-one-pager.png",              href: "decks/bb-program-one-pager-in-store.html" },
-  { title: "R3 Program Onboarding Deck",     meta: "English",                   img: "assets/r3-onboarding-en-cover.jpg",   href: "decks/r3-onboarding-en-compressed.pdf" },
-  { title: "R3 Program Onboarding Deck",     meta: "Italian",                   img: "assets/r3-onboarding-it-cover.jpg",   href: "decks/r3-onboarding-it-compressed.pdf" },
-  { title: "R3 Program Onboarding Deck",     meta: "Spanish",                   img: "assets/r3-onboarding-es-cover.jpg",   href: "decks/r3-onboarding-es-small.pdf" },
+  { title: "Master Deck",                          meta: "Company Overview",         img: "assets/master-deck-cover.jpg",        href: "decks/master-deck.pdf" },
+  { title: "Amazon Deck",                          meta: "Warehouse Services Pitch", img: "assets/amazon-deck-cover.jpg",        href: "decks/amazon-direction-a.pdf" },
+  { title: "Case Studies",                         meta: "Impact Stories",           img: "assets/cardboard-bales.webp",         href: "decks/case-studies.html" },
+  { title: "Donation Liability One Pager",         meta: "Donation Liability",       img: "assets/supermarket-aisle.jpg",        href: "decks/donation-liability-one-pager.html" },
+  { title: "BB Program One Pager In Store",        meta: "Benefit Box Program",      img: "assets/store-decom.png",              href: "decks/bb-program-one-pager-in-store.html" },
+  { title: "R3 Program Onboarding Deck",           meta: "English",                  img: "assets/r3-onboarding-en-cover.jpg",   href: "decks/r3-onboarding-en-compressed.pdf" },
+  { title: "R3 Program Onboarding Deck",           meta: "Italian",                  img: "assets/r3-onboarding-it-cover.jpg",   href: "decks/r3-onboarding-it-compressed.pdf" },
+  { title: "R3 Program Onboarding Deck",           meta: "Spanish",                  img: "assets/r3-onboarding-es-cover.jpg",   href: "decks/r3-onboarding-es-small.pdf" },
+  { title: "Beneficial Reuse Program Welcome Kit", meta: "Program Overview",         img: "assets/br-welcome-kit-cover.jpg",     href: "decks/br-welcome-kit-compressed.pdf" },
 ];
 
 function openLB(i) {
